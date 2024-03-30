@@ -169,17 +169,21 @@ button {
 
 .sectionTitle {
     font-size: 1.25rem;
-    border-top: 2px solid hsl(var(--accent));
+    border-top: 2px solid hsl(var(--muted--light));
     font-weight: 700;
 }
 
+.rolesList,
 .skillsList {
-    display: flex;
-    gap: 0.875rem;
-    flex-wrap: wrap;
     list-style: none;
-    margin-top: 0.5rem;
     padding-left: 0;
+}
+
+.skillsList {
+    gap: 0.875rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
 
     & > li {
         background-color: hsl(var(--accent) / 0.2);
@@ -187,4 +191,15 @@ button {
         border-radius: 12px;
         padding: 0 12px;
     }
+}
+
+.rolesList li {
+    display: grid;
+    grid-template-columns: 8rem auto;
+    gap: 0.875rem;
+    margin-top: 0.875rem;
+}
+
+.roleCompany {
+    font-weight: 700;
 }

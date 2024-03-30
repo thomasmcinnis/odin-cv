@@ -105,14 +105,10 @@ export function SkillsForm({ skills, setSkills }) {
     )
 }
 
-export function RolesForm(formData, handleChange) {
+export function EducationForm({ education, setEducation }) {
     return (
-        <div>Roles Section</div>
-    )
-}
-
-export function EducationForm(formData, handleChange) {
-    return (
-        <div>Education Section</div>
+        <section>
+            <h3>Education</h3>
+        </section>
     )
 }

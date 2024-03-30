@@ -36,3 +36,29 @@ export function SkillsSection({ skills }) {
         </div>
     )
 }
+
+export function RolesSection({ roles }) {
+    return (
+        <div className="pageSection">
+            <p className="sectionTitle">Professional Experience</p>
+            <ul className="rolesList">
+                {roles && roles.map((role) => {
+                    return (
+                        <li key={role.id}>
+                            <div>
+                                <p>{role.startYear} - {role.endYear}</p>
+                                <p>{role.location}</p>
+                            </div>
+                            <div>
+                                <p className="roleCompany">{role.company}</p>
+                                <p>{role.title}</p>
+                                <p>{role.description}</p>
+                            </div>
+                        </li>
+                    )
+                })}
+            </ul>
+        </div>
+    )
+
+}
