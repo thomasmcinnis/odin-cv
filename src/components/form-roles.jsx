@@ -1,46 +1,60 @@
 import { useState } from "react";
 import { createRole } from "../model/roles";
 
+const formFields = [
+    { name: 'title', prettyName: 'Job Title', type: 'text', required: true, },
+    { name: 'company', prettyName: 'Company', type: 'text', required: true, },
+    { name: 'location', prettyName: 'Location', type: 'text', required: true, },
+    { name: 'startYear', prettyName: 'Start Date', type: 'text', required: true, },
+    { name: 'endYear', prettyName: 'End Date', type: 'text', required: true, },
+    { name: 'description', prettyName: 'Responsibilities', type: 'text', required: false, },
+]
+
+const initialState = {
+    title: '',
+    company: '',
+    location: '',
+    startYear: '',
+    endYear: '',
+    description: ''
+}
 
 export function RolesForm({ roles, setRoles }) {
-    const [title, setTitle] = useState('')
-    const [company, setCompany] = useState('')
+    const [role, setRole] = useState(initialState)
+
+    function handleChange(e) {
+        setRole({
+            ...role,
+            [e.target.name]: e.target.value
+        })
+    }
 
     return (
-        <section>
+        <form>
             <h3>Work Experience</h3>
-            <div>
-                <label htmlFor="title">Title</label>
-                <input
-                    type="text"
-                    name="title"
-                    id="title"
-                    value={title}
-                    onChange={e => setTitle(e.target.value)}
-                />
-            </div>
-            <div>
-                <label htmlFor="company">Company</label>
-                <input
-                    type="text"
-                    name="company"
-                    id="company"
-                    value={company}
-                    onChange={e => setCompany(e.target.value)}
-                />
-            </div>
+            {formFields.map((field) => (
+                <div key={field.name}>
+                    <label htmlFor={field.name}>{field.prettyName}</label>
+                    <input
+                        type={field.type}
+                        name={field.name}
+                        id={field.name}
+                        value={role[field.name]}
+                        onChange={e => handleChange(e)}
+                        required={field.required}
+                    />
+                </div>
+            ))}
             <button onClick={(e) => {
                 e.preventDefault();
-                const newRole = createRole({ title, company });
                 setRoles([
                     ...roles,
-                    newRole
+                    createRole(role)
                 ]);
-                setTitle('');
-                setCompany('');
+                setRole(initialState)
             }}
             >Add</button>
-        </section>
+        </form>
     )
 }
 

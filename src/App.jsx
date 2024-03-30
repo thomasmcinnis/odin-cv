@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-import { Form, PersonalInfoForm, SkillsForm, EducationForm } from "./components/form";
+import { Form, PersonalInfoForm, SkillsForm } from "./components/form";
 import { Preview, HeaderSection, SkillsSection, RolesSection } from "./components/preview";
 
 import { RolesForm } from "./components/form-roles";
 import { initialRoles } from "./model/roles";
+
+import { EducationForm } from "./components/form-education";
 
 const initialDetails = {
     name: 'Thomas McInnis',
@@ -23,7 +25,6 @@ function App() {
     const [skills, setSkills] = useState(initialSkills)
     const [roles, setRoles] = useState(initialRoles);
     const [education, setEducation] = useState([]);
-    const [openIndex, setOpen] = useState(0)
 
     return (
         <>

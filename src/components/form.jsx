@@ -2,10 +2,10 @@ import { useState } from "react";
 
 export function Form({ children }) {
     return (
-        <form>
+        <section>
             <h2>Details</h2>
             {children}
-        </form>
+        </section>
     )
 }
 export function PersonalInfoForm({ person, setPerson }) {
@@ -17,7 +17,7 @@ export function PersonalInfoForm({ person, setPerson }) {
     }
 
     return (
-        <section>
+        <form>
             <h3>Personal information</h3>
             <div>
                 <label htmlFor="name">Your name</label>
@@ -54,7 +54,7 @@ export function PersonalInfoForm({ person, setPerson }) {
                     onChange={handleChange}
                 />
             </div>
-        </section>
+        </form>
     )
 }
 
@@ -63,7 +63,7 @@ export function SkillsForm({ skills, setSkills }) {
     const [name, setName] = useState('');
 
     return (
-        <section>
+        <form>
             <h3>Skills list</h3>
             <div>
                 <label htmlFor="skill">Add skill</label>
@@ -101,14 +101,7 @@ export function SkillsForm({ skills, setSkills }) {
                 ))}
             </ul>
 
-        </section>
+        </form>
     )
 }
 
-export function EducationForm({ education, setEducation }) {
-    return (
-        <section>
-            <h3>Education</h3>
-        </section>
-    )
-}
