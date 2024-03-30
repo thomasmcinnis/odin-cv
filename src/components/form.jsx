@@ -1,6 +1,7 @@
 export function Form({ children }) {
     return (
-        <form action="">
+        <form>
+            <h2>Details</h2>
             {children}
         </form>
     )
@@ -28,8 +29,8 @@ export function PersonalInfoForm({ person, setPerson }) {
     }
 
     return (
-        <div>
-            <h2>Personal information</h2>
+        <section>
+            <h3>Personal information</h3>
             <div>
                 <label htmlFor="name">Your name</label>
                 <input
@@ -59,7 +60,7 @@ export function PersonalInfoForm({ person, setPerson }) {
                     onChange={handlePhoneChange}
                 />
             </div>
-        </div>
+        </section>
     )
 }
 

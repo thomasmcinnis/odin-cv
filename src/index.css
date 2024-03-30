@@ -93,29 +93,37 @@ h6 {
 body {
     color: hsl(var(--txt));
     background-color: hsl(var(--bkg));
+    max-width: 64rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 main {
-    max-width: 42rem;
-    margin: 2rem auto;
-    padding: 0 1rem;
     display: grid;
     grid-template-columns: 2fr 4fr;
-    row-gap: 1rem;
     column-gap: 6rem;
+    margin-top: 2rem;
 }
 
-#top-menu {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    justify-self: center;
-}
-
-#side-menu {
+form,
+.preview {
     display: flex;
     flex-direction: column;
-    justify-self: center;
-    padding: 0 1rem;
+    gap: 1.25rem;
+}
+
+form > section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.825rem;
+}
+
+label {
+    display: block;
+}
+
+input {
+    width: 100%;
 }
 
 button {
@@ -130,7 +138,21 @@ button {
     }
 }
 
-ul {
-    padding-left: 0;
-    list-style-type: none;
+/* Styling for the document preview */
+
+.pageHeader {
+    color: white;
+    background-color: hsl(var(--accent--light));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem 2rem 1rem;
+}
+.name {
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+.contact {
+    display: flex;
+    gap: 1.5rem;
 }

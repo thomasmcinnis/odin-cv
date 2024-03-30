@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { Form, PersonalInfoForm, SkillsForm, RolesForm, EducationForm } from "./components/form";
+import { Form, PersonalInfoForm } from "./components/form";
+import { Preview, HeaderSection } from "./components/preview";
 
 function App() {
     // Keeping this extremely dumb for the sake of exercise
@@ -10,13 +11,19 @@ function App() {
     const [education, setEducation] = useState([]);
 
     return (
-        <main>
-            <h1>CV Builder</h1>
-            <Form>
-                <PersonalInfoForm person={person} setPerson={setPerson} />
-            </Form>
-            <div className="preview"></div>
-        </main>
+        <>
+            <header>
+                <h1>CV Builder</h1>
+            </header>
+            <main>
+                <Form>
+                    <PersonalInfoForm person={person} setPerson={setPerson} />
+                </Form>
+                <Preview>
+                    <HeaderSection person={person} />
+                </Preview>
+            </main>
+        </>
     );
 }
 
