@@ -1,12 +1,23 @@
 import { useState } from "react";
 
-import { Form, PersonalInfoForm } from "./components/form";
-import { Preview, HeaderSection } from "./components/preview";
+import { Form, PersonalInfoForm, SkillsForm } from "./components/form";
+import { Preview, HeaderSection, SkillsSection } from "./components/preview";
+
+const initialDetails = {
+    name: 'Thomas McInnis',
+    email: 'hey@thomasmcinnis.com',
+    phone: '+61 449 160 765'
+}
+
+const initialSkills = [
+    { id: 0, name: 'JavaScript' },
+    { id: 1, name: 'React' },
+    { id: 2, name: 'CSS' },
+]
 
 function App() {
-    // Keeping this extremely dumb for the sake of exercise
-    const [person, setPerson] = useState({ name: 'Thomas McInnis', email: 'hey@thomasmcinnis.com', phone: '+61 449 160 765' })
-    const [skills, setSkills] = useState([]);
+    const [person, setPerson] = useState(initialDetails)
+    const [skills, setSkills] = useState(initialSkills)
     const [roles, setRoles] = useState([]);
     const [education, setEducation] = useState([]);
 
@@ -18,9 +29,11 @@ function App() {
             <main>
                 <Form>
                     <PersonalInfoForm person={person} setPerson={setPerson} />
+                    <SkillsForm skills={skills} setSkills={setSkills} />
                 </Form>
                 <Preview>
                     <HeaderSection person={person} />
+                    <SkillsSection skills={skills} />
                 </Preview>
             </main>
         </>

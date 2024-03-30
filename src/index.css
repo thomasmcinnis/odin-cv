@@ -139,6 +139,14 @@ button {
 }
 
 /* Styling for the document preview */
+.document {
+    background-color: white;
+    color: hsl(var(--txt--light) / 0.75);
+}
+
+.document > * {
+    padding: 2rem;
+}
 
 .pageHeader {
     color: white;
@@ -148,11 +156,35 @@ button {
     align-items: center;
     padding: 3rem 1rem 2rem 1rem;
 }
+
 .name {
     font-weight: 700;
     font-size: 1.75rem;
 }
+
 .contact {
     display: flex;
     gap: 1.5rem;
+}
+
+.sectionTitle {
+    font-size: 1.25rem;
+    border-top: 2px solid hsl(var(--accent));
+    font-weight: 700;
+}
+
+.skillsList {
+    display: flex;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 0.5rem;
+    padding-left: 0;
+
+    & > li {
+        background-color: hsl(var(--accent) / 0.2);
+        color: hsl(var(--accent--light));
+        border-radius: 12px;
+        padding: 0 12px;
+    }
 }

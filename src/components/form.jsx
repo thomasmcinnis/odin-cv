@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export function Form({ children }) {
     return (
         <form>
@@ -7,24 +9,10 @@ export function Form({ children }) {
     )
 }
 export function PersonalInfoForm({ person, setPerson }) {
-    function handleNameChange(e) {
+    function handleChange(e) {
         setPerson({
             ...person,
-            name: e.target.value,
-        })
-    }
-
-    function handleEmailChange(e) {
-        setPerson({
-            ...person,
-            email: e.target.value,
-        })
-    }
-
-    function handlePhoneChange(e) {
-        setPerson({
-            ...person,
-            phone: e.target.value,
+            [e.target.name]: e.target.value,
         })
     }
 
@@ -35,38 +23,85 @@ export function PersonalInfoForm({ person, setPerson }) {
                 <label htmlFor="name">Your name</label>
                 <input
                     type="text"
+                    name="name"
                     id="name"
+                    autoComplete="name"
                     value={person.name}
-                    onChange={handleNameChange}
+                    onChange={handleChange}
                 />
             </div>
             <div>
                 <label htmlFor="email">Email</label>
                 <input
                     type="email"
+                    name="email"
                     id="email"
+                    autoComplete="email"
                     value={person.email}
                     placeholder="example@email.com"
-                    onChange={handleEmailChange}
+                    onChange={handleChange}
                 />
             </div>
             <div>
                 <label htmlFor="phone">Phone number</label>
                 <input
                     type="text"
+                    name="phone"
                     id="phone"
+                    autoComplete="mobile tel"
                     value={person.phone}
                     placeholder="+1 999 999 999"
-                    onChange={handlePhoneChange}
+                    onChange={handleChange}
                 />
             </div>
         </section>
     )
 }
 
-export function SkillsForm(formData, handleChange) {
+let nextID = 3;
+export function SkillsForm({ skills, setSkills }) {
+    const [name, setName] = useState('');
+
     return (
-        <div>Skills Section</div>
+        <section>
+            <h3>Skills list</h3>
+            <div>
+                <label htmlFor="skill">Add skill</label>
+                <input
+                    type="text"
+                    name="skill"
+                    id="skill"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                />
+                <p>{name}</p>
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    setSkills([
+                        ...skills,
+                        { id: nextID++, name: name }
+                    ]);
+                    setName('');
+                }}
+                >Add</button>
+            </div>
+            <ul>
+                {skills && skills.map(skill => (
+                    <li key={skill.id}>
+                        {skill.name}
+                        <button
+                            data-value={skill.id}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setSkills(skills.filter(s => s.id !== skill.id));
+                            }}
+                        >Delete
+                        </button>
+                    </li>
+                ))}
+            </ul>
+
+        </section>
     )
 }
 
