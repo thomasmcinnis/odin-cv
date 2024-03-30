@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { Form, PersonalInfoForm, SkillsForm } from "./components/form";
+import Panel from "./components/panel";
+import { PersonalInfoForm, SkillsForm } from "./components/form";
 import { Preview, HeaderSection, SkillsSection, RolesSection } from "./components/preview";
 
 import { RolesForm } from "./components/form-roles";
@@ -25,6 +26,7 @@ function App() {
     const [skills, setSkills] = useState(initialSkills)
     const [roles, setRoles] = useState(initialRoles);
     const [education, setEducation] = useState([]);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
         <>
@@ -32,12 +34,37 @@ function App() {
                 <h1>CV Builder</h1>
             </header>
             <main>
-                <Form>
-                    <PersonalInfoForm person={person} setPerson={setPerson} />
-                    <SkillsForm skills={skills} setSkills={setSkills} />
-                    <RolesForm roles={roles} setRoles={setRoles} />
-                    <EducationForm education={education} setEducation={setEducation} />
-                </Form>
+                <section className="formSection">
+                    <h2>Details</h2>
+                    <Panel
+                        title="Personal Information"
+                        isActive={activeIndex === 0}
+                        onShow={() => setActiveIndex(0)}
+                    >
+                        <PersonalInfoForm person={person} setPerson={setPerson} />
+                    </Panel>
+                    <Panel
+                        title="Skills"
+                        isActive={activeIndex === 1}
+                        onShow={() => setActiveIndex(1)}
+                    >
+                        <SkillsForm skills={skills} setSkills={setSkills} />
+                    </Panel>
+                    <Panel
+                        title="Work Experience"
+                        isActive={activeIndex === 2}
+                        onShow={() => setActiveIndex(2)}
+                    >
+                        <RolesForm roles={roles} setRoles={setRoles} />
+                    </Panel>
+                    <Panel
+                        title="Education"
+                        isActive={activeIndex === 3}
+                        onShow={() => setActiveIndex(3)}
+                    >
+                        <EducationForm education={education} setEducation={setEducation} />
+                    </Panel>
+                </section>
                 <Preview>
                     <HeaderSection person={person} />
                     <SkillsSection skills={skills} />

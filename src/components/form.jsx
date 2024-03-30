@@ -1,13 +1,5 @@
 import { useState } from "react";
 
-export function Form({ children }) {
-    return (
-        <section>
-            <h2>Details</h2>
-            {children}
-        </section>
-    )
-}
 export function PersonalInfoForm({ person, setPerson }) {
     function handleChange(e) {
         setPerson({
@@ -18,7 +10,6 @@ export function PersonalInfoForm({ person, setPerson }) {
 
     return (
         <form>
-            <h3>Personal information</h3>
             <div>
                 <label htmlFor="name">Your name</label>
                 <input
@@ -64,7 +55,6 @@ export function SkillsForm({ skills, setSkills }) {
 
     return (
         <form>
-            <h3>Skills list</h3>
             <div>
                 <label htmlFor="skill">Add skill</label>
                 <input

@@ -31,7 +31,6 @@ export function RolesForm({ roles, setRoles }) {
 
     return (
         <form>
-            <h3>Work Experience</h3>
             {formFields.map((field) => (
                 <div key={field.name}>
                     <label htmlFor={field.name}>{field.prettyName}</label>
