@@ -1,13 +1,13 @@
 const coursesData = [
     {
-        title: 'Certificate B in Pizza',
-        school: 'Mario and Son',
+        title: 'Certificate B (Pizza)',
+        school: 'Mario and Son Institute',
         startYear: '2000',
         endYear: '2001',
         location: 'Naples',
     },
     {
-        title: 'Chest Rockwell Comportment and Beauty',
+        title: 'Chest Rockwell Beauty Certificate',
         school: 'Handsome Boy Modeling School',
         startYear: '2016',
         endYear: '2016',

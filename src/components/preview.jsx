@@ -41,7 +41,7 @@ export function RolesSection({ roles }) {
     return (
         <div className="pageSection">
             <p className="sectionTitle">Professional Experience</p>
-            <ul className="rolesList">
+            <ul className="previewList">
                 {roles && roles.map((role) => {
                     return (
                         <li key={role.id}>
@@ -50,7 +50,7 @@ export function RolesSection({ roles }) {
                                 <p>{role.location}</p>
                             </div>
                             <div>
-                                <p className="roleCompany">{role.company}</p>
+                                <p className="itemHeadline">{role.company}</p>
                                 <p>{role.title}</p>
                                 <p>{role.description}</p>
                             </div>
@@ -66,7 +66,7 @@ export function EducationSection({ courses }) {
     return (
         <div className="pageSection">
             <p className="sectionTitle">Qualifications</p>
-            <ul className="coursesList">
+            <ul className="previewList">
                 {courses && courses.map((course) => {
                     return (
                         <li key={course.id}>
@@ -75,8 +75,8 @@ export function EducationSection({ courses }) {
                                 <p>{course.location}</p>
                             </div>
                             <div>
-                                <p className="courseSchool">{course.school}</p>
-                                <p>{course.title}</p>
+                                <p className="itemHeadline">{course.title}</p>
+                                <p>{course.school}</p>
                             </div>
                         </li>
                     )

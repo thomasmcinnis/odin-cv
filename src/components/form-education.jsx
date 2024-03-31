@@ -75,10 +75,13 @@ export function EducationForm({ education, setEducation }) {
                 {education && education.map(course => (
                     <li key={course.id}>
                         {course.title}
-                        <button onClick={e => handleDelete(e, course.id)}
-                        >Delete</button>
-                        <button onClick={e => handleEdit(e, course)}
-                        >Edit</button>
+                        <span className="itemButtons">
+                            <button onClick={e => handleDelete(e, course.id)}
+                            >Delete</button>
+                            /
+                            <button onClick={e => handleEdit(e, course)}
+                            >Edit</button>
+                        </span>
                     </li>
                 ))}
             </ul>

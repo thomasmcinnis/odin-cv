@@ -57,23 +57,24 @@ export function SkillsForm({ skills, setSkills }) {
         <form>
             <div>
                 <label htmlFor="skill">Add skill</label>
-                <input
-                    type="text"
-                    name="skill"
-                    id="skill"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                />
-                <p>{name}</p>
-                <button onClick={(e) => {
-                    e.preventDefault();
-                    setSkills([
-                        ...skills,
-                        { id: nextID++, name: name }
-                    ]);
-                    setName('');
-                }}
-                >Add</button>
+                <div className="skillInput">
+                    <input
+                        type="text"
+                        name="skill"
+                        id="skill"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                    />
+                    <button onClick={(e) => {
+                        e.preventDefault();
+                        setSkills([
+                            ...skills,
+                            { id: nextID++, name: name }
+                        ]);
+                        setName('');
+                    }}
+                    >Add</button>
+                </div>
             </div>
             <ul>
                 {skills && skills.map(skill => (

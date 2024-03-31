@@ -77,10 +77,13 @@ export function RolesForm({ roles, setRoles }) {
                 {roles && roles.map(role => (
                     <li key={role.id}>
                         {role.title}
-                        <button onClick={e => handleDelete(e, role.id)}
-                        >Delete</button>
-                        <button onClick={e => handleEdit(e, role)}
-                        >Edit</button>
+                        <span className="itemButtons">
+                            <button onClick={e => handleDelete(e, role.id)}
+                            >Delete</button>
+                            /
+                            <button onClick={e => handleEdit(e, role)}
+                            >Edit</button>
+                        </span>
                     </li>
                 ))}
             </ul>

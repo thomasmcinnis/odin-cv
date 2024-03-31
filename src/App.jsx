@@ -11,15 +11,15 @@ import { EducationForm } from "./components/form-education";
 import { initialCourses } from "./model/courses";
 
 const initialDetails = {
-    name: 'Thomas McInnis',
-    email: 'hey@thomasmcinnis.com',
-    phone: '+61 449 160 765'
+    name: 'Guido Sarducci',
+    email: 'fathrG@observatore.it',
+    phone: '1300 555 222'
 }
 
 const initialSkills = [
-    { id: 0, name: 'JavaScript' },
-    { id: 1, name: 'React' },
-    { id: 2, name: 'CSS' },
+    { id: 0, name: 'Dough making' },
+    { id: 1, name: 'Toppings' },
+    { id: 2, name: 'Turning left' },
 ]
 
 function App() {

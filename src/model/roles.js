@@ -4,16 +4,17 @@ const rolesData = [
         company: 'Dominos Pizza',
         startYear: '2010',
         endYear: '2016',
-        location: 'Melbourne',
+        location: 'New York',
         description: 'Create the best pizza in the known universe.',
     },
     {
         title: 'Male Model',
-        company: 'Chasers',
+        company: 'Elektra Global',
         startYear: '2016',
         endYear: 'Ongoing',
         location: 'Worldwide',
-        description: 'Just being really really good looking.',
+        description:
+            'Just being really really good looking. Mostly sock commercials',
     },
 ];
 
