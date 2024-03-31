@@ -60,5 +60,28 @@ export function RolesSection({ roles }) {
             </ul>
         </div>
     )
+}
 
+export function EducationSection({ courses }) {
+    return (
+        <div className="pageSection">
+            <p className="sectionTitle">Qualifications</p>
+            <ul className="coursesList">
+                {courses && courses.map((course) => {
+                    return (
+                        <li key={course.id}>
+                            <div>
+                                <p>{course.startYear} - {course.endYear}</p>
+                                <p>{course.location}</p>
+                            </div>
+                            <div>
+                                <p className="courseSchool">{course.school}</p>
+                                <p>{course.title}</p>
+                            </div>
+                        </li>
+                    )
+                })}
+            </ul>
+        </div>
+    )
 }

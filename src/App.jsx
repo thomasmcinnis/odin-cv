@@ -2,12 +2,13 @@ import { useState } from "react";
 
 import Panel from "./components/panel";
 import { PersonalInfoForm, SkillsForm } from "./components/form";
-import { Preview, HeaderSection, SkillsSection, RolesSection } from "./components/preview";
+import { Preview, HeaderSection, SkillsSection, RolesSection, EducationSection } from "./components/preview";
 
 import { RolesForm } from "./components/form-roles";
 import { initialRoles } from "./model/roles";
 
 import { EducationForm } from "./components/form-education";
+import { initialCourses } from "./model/courses";
 
 const initialDetails = {
     name: 'Thomas McInnis',
@@ -25,7 +26,7 @@ function App() {
     const [person, setPerson] = useState(initialDetails)
     const [skills, setSkills] = useState(initialSkills)
     const [roles, setRoles] = useState(initialRoles);
-    const [education, setEducation] = useState([]);
+    const [education, setEducation] = useState(initialCourses);
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
@@ -69,6 +70,7 @@ function App() {
                     <HeaderSection person={person} />
                     <SkillsSection skills={skills} />
                     <RolesSection roles={roles} />
+                    <EducationSection courses={education} />
                 </Preview>
             </main>
         </>
